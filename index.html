@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <titile>Hello Server</title>
+</head>
+<body>
+<h1 id="echot"></h1>
+<script>
+  function sleep(ms){
+    return new Promise(resolve => setTimeout(resolve,ms));
+  }
+  async function run(){
+    i=0;
+    while(i<5){
+      fetch("https://nuc.mysk.co:9443/links/scripts/code?t=" + i +"\"")
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(myJson){
+        document.querySelector("#echo").innerHTML = myJson.info;
+      })
+      .catch(function(error){
+        console.log("Error: "+erro);
+      })
+      i++;
+      await sleep(1000);
+    }
+  }
+  run();
+</script>
+</body>
+</html>
