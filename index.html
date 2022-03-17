@@ -11,8 +11,8 @@
   }
   async function run(){
     i=0;
-    while(i<5){
-      fetch("https://nuc.mysk.co:9443/links/scripts/code?t=" + i +"\"")
+    while(i<1){
+      fetch("https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=ae3d6c31aaeb76f8bc67bf65729fd0e4")
       .then(function(response){
         return response.json();
       })
@@ -20,7 +20,7 @@
         document.querySelector("#echo").innerHTML = myJson.info;
       })
       .catch(function(error){
-        console.log("Error: "+erro);
+        console.log("Error: "+error);
       })
       i++;
       await sleep(1000);
